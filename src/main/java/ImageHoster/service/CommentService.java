@@ -10,8 +10,8 @@ public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
-    public void saveCommnet(Comment comment){
+    public void addCommnet(Comment comment){
         System.out.println("In service class");
-        commentRepository.saveCommnets(comment);
+        commentRepository.createComments(comment);
     }
 }

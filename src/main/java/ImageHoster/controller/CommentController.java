@@ -23,13 +23,13 @@ public class CommentController {
     private ImageService imageService;
 
     @RequestMapping(value ="image/{imageId}/{imageTitle}/comments", method = RequestMethod.POST)
-    public String createNewCommnet(@RequestParam("comment") String comment, @PathVariable("imageTitle") String imageTitle, @PathVariable("imageId") Integer imageId, HttpSession session){
+    public String createNewComment(@RequestParam("comment") String comment, @PathVariable("imageTitle") String imageTitle, @PathVariable("imageId") Integer imageId, HttpSession session){
         User user = (User) session.getAttribute("loggeduser");
         Image image = imageService.getImage(imageId);
 
         Comment newcomment = new Comment(comment,user,image);
         System.out.println("Inside controller");
-        commentService.saveCommnet(newcomment);
+        commentService.addCommnet(newcomment);
         return "redirect:/images/" + imageId + "/" + imageTitle ;
 
         }

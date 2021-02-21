@@ -102,6 +102,7 @@ public class ImageController {
             model.addAttribute("editError", error);
             model.addAttribute("tags", image.getTags());
             model.addAttribute("image", image);
+            model.addAttribute("comments", image.getComments());
             return "images/image";
         }
         String tags = convertTagsToString(image.getTags());
@@ -161,6 +162,7 @@ public class ImageController {
             model.addAttribute("deleteError", error);
             model.addAttribute("tags", image.getTags());
             model.addAttribute("image", image);
+            model.addAttribute("comments", image.getComments());
             return "images/image";
         }
         imageService.deleteImage(imageId);
