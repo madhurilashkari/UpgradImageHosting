@@ -13,7 +13,7 @@ public class CommentRepository {
     @PersistenceUnit(unitName = "imageHoster")
     private EntityManagerFactory emf;
 
-    public Comment saveCommnets(Comment comment){
+    public Comment createComments(Comment comment){
 
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();

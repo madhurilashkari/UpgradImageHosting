@@ -19,11 +19,11 @@ public class Comment {
     private LocalDate createdDate;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    // @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    //@JoinColumn(name="image_id")
+    @ManyToOne(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
+    @JoinColumn(name="image_id")
     private Image image;
 
 
