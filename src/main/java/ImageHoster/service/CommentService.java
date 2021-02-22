@@ -10,8 +10,8 @@ public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
-    public void addCommnet(Comment comment){
-        System.out.println("In service class");
-        commentRepository.createComments(comment);
+    //Calls the createComments() method in  repository  and passes the comment to be persisted in the database
+    public void addComment(Comment comment){
+         commentRepository.createComments(comment);
     }
 }

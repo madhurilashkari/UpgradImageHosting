@@ -18,10 +18,12 @@ public class Comment {
     @Column(name ="createdDate")
     private LocalDate createdDate;
 
+    // comment table is mapped to users table with Many to one relation since one user can have multiple comments.
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
+    // comment table is mapped to image table with Many to one relation since one image can have multiple comments.
     @ManyToOne(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
     @JoinColumn(name="image_id")
     private Image image;
