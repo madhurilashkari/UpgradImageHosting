@@ -39,6 +39,7 @@ public class UserController {
 
     //This controller method is called when the request pattern is of type 'users/registration' and also the incoming request is of POST type
     //This method calls the business logic and after the user record is persisted in the database, directs to login page
+    //This method also has the feature to check the strength of password
     @RequestMapping(value = "users/registration", method = RequestMethod.POST)
     public String registerUser(User user, Model model) {
         boolean passwordValid = checkPasswordStrenth(user.getPassword());
@@ -90,6 +91,8 @@ public class UserController {
         return "index";
     }
 
+    /* This method takes password of type string provided by user and validates whether it contails 1 alphabet('a' to 'z' OR 'A' to 'Z'),
+       1 number ('0' to '9') and 1 special character */
     private boolean checkPasswordStrenth(String password){
         int n = password.length();
         int alphabet = 0;
